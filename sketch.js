@@ -1,4 +1,4 @@
-var canvas, backgroundImage;
+var canvas, backgroundImage, allPlayers, distance;
 
 var gameState = 0;
 var playerCount;
@@ -14,8 +14,18 @@ function setup(){
   game = new Game();
   game.getState();
   game.start();
+
+  distance = 0;
 }
 
 
 function draw(){
+  if (playerCount === 1) {
+    game.update(1);
+  }
+
+  if (gameState === 1) {
+    clear();
+    game.play();
+  }
 }
